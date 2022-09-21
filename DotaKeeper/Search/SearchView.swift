@@ -23,7 +23,7 @@ extension SearchView {
 
         var body: some View {
             VStack {
-                TopBar(pickerState: $pickerState)
+                TopBarView(pickerState: $pickerState)
                 ScrollView {
                     ForEach(1...100, id: \.self) { index in
                         Text("\(pickerState.rawValue) \(index)")

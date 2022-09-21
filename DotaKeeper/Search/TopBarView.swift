@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TopBar<E: PickerEnum>: View where E.RawValue == String {
+struct TopBarView<E: PickerEnum>: View where E.RawValue == String {
 
     @Binding var pickerState: E
     @State private var searchText: String = ""
@@ -65,9 +65,10 @@ struct SearchBar: View {
                         self.isEditing = true
                     }
             }
-                .padding(7)
-                .background(Color(.systemGray6))
-                .cornerRadius(6)
+            .padding(7)
+            .background(Color(.systemGray6))
+            .cornerRadius(6)
+
             if isEditing {
                 Button {
                     self.isEditing = false
@@ -99,7 +100,7 @@ struct TopBar_Previews: PreviewProvider {
 
     static var previews: some View {
         VStack {
-            TopBar<GlossaryPickerState>(pickerState: $pickerState)
+            TopBarView<GlossaryPickerState>(pickerState: $pickerState)
             Spacer()
         }
     }
