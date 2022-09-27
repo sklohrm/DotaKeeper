@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2918E35628DD761E00E6615D /* URL-Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2918E35528DD761E00E6615D /* URL-Endpoints.swift */; };
+		291A965C28E2900100B04413 /* ImageRetriever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291A965B28E2900100B04413 /* ImageRetriever.swift */; };
+		291A965E28E2943600B04413 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291A965D28E2943600B04413 /* ImageCache.swift */; };
+		291A966028E298BC00B04413 /* CachedImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291A965F28E298BC00B04413 /* CachedImageManager.swift */; };
+		291A966228E2997D00B04413 /* CachedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291A966128E2997D00B04413 /* CachedImage.swift */; };
+		29239CC228DB986A0055D244 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29239CC128DB986A0055D244 /* DataLoader.swift */; };
 		29BCFC4628D7FF34000F4B62 /* DotaKeeperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BCFC4528D7FF34000F4B62 /* DotaKeeperApp.swift */; };
 		29BCFC4828D7FF34000F4B62 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BCFC4728D7FF34000F4B62 /* ContentView.swift */; };
 		29BCFC4A28D7FF34000F4B62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29BCFC4928D7FF34000F4B62 /* Assets.xcassets */; };
@@ -15,12 +21,19 @@
 		29BCFC7B28D80DEC000F4B62 /* SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BCFC7A28D80DEC000F4B62 /* SavedView.swift */; };
 		29BCFC7D28D80DF4000F4B62 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BCFC7C28D80DF4000F4B62 /* ProfileView.swift */; };
 		29BCFC7F28D80DFC000F4B62 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BCFC7E28D80DFC000F4B62 /* SearchView.swift */; };
-		29BCFC8128D80E0C000F4B62 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BCFC8028D80E0C000F4B62 /* TopBarView.swift */; };
+		29BCFC8128D80E0C000F4B62 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BCFC8028D80E0C000F4B62 /* SearchBarView.swift */; };
 		29BCFC8328D80E13000F4B62 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BCFC8228D80E13000F4B62 /* FilterView.swift */; };
 		29F6B9B128DA94B700472FC1 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F6B9B028DA94B700472FC1 /* Player.swift */; };
+		29F6B9B428DAA5B600472FC1 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F6B9B328DAA5B600472FC1 /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2918E35528DD761E00E6615D /* URL-Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL-Endpoints.swift"; sourceTree = "<group>"; };
+		291A965B28E2900100B04413 /* ImageRetriever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRetriever.swift; sourceTree = "<group>"; };
+		291A965D28E2943600B04413 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		291A965F28E298BC00B04413 /* CachedImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImageManager.swift; sourceTree = "<group>"; };
+		291A966128E2997D00B04413 /* CachedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedImage.swift; sourceTree = "<group>"; };
+		29239CC128DB986A0055D244 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		29BCFC4228D7FF34000F4B62 /* DotaKeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DotaKeeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29BCFC4528D7FF34000F4B62 /* DotaKeeperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotaKeeperApp.swift; sourceTree = "<group>"; };
 		29BCFC4728D7FF34000F4B62 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -31,9 +44,10 @@
 		29BCFC7A28D80DEC000F4B62 /* SavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedView.swift; sourceTree = "<group>"; };
 		29BCFC7C28D80DF4000F4B62 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		29BCFC7E28D80DFC000F4B62 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
-		29BCFC8028D80E0C000F4B62 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+		29BCFC8028D80E0C000F4B62 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		29BCFC8228D80E13000F4B62 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		29F6B9B028DA94B700472FC1 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		29F6B9B328DAA5B600472FC1 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +61,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		291A966328E3602F00B04413 /* CachedImage */ = {
+			isa = PBXGroup;
+			children = (
+				291A965B28E2900100B04413 /* ImageRetriever.swift */,
+				291A965D28E2943600B04413 /* ImageCache.swift */,
+				291A965F28E298BC00B04413 /* CachedImageManager.swift */,
+				291A966128E2997D00B04413 /* CachedImage.swift */,
+			);
+			path = CachedImage;
+			sourceTree = "<group>";
+		};
 		2984BADB28D95FB300CA2829 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,7 +101,7 @@
 			children = (
 				29BCFC7E28D80DFC000F4B62 /* SearchView.swift */,
 				29BCFC8228D80E13000F4B62 /* FilterView.swift */,
-				29BCFC8028D80E0C000F4B62 /* TopBarView.swift */,
+				29BCFC8028D80E0C000F4B62 /* SearchBarView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -114,6 +139,7 @@
 		29BCFC4428D7FF34000F4B62 /* DotaKeeper */ = {
 			isa = PBXGroup;
 			children = (
+				291A966328E3602F00B04413 /* CachedImage */,
 				29F6B9B228DA94F200472FC1 /* API */,
 				29BCFC5328D8060E000F4B62 /* Info.plist */,
 				29BCFC4728D7FF34000F4B62 /* ContentView.swift */,
@@ -142,6 +168,9 @@
 			isa = PBXGroup;
 			children = (
 				29F6B9B028DA94B700472FC1 /* Player.swift */,
+				29F6B9B328DAA5B600472FC1 /* SearchViewModel.swift */,
+				29239CC128DB986A0055D244 /* DataLoader.swift */,
+				2918E35528DD761E00E6615D /* URL-Endpoints.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -238,14 +267,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29BCFC8128D80E0C000F4B62 /* TopBarView.swift in Sources */,
+				291A965C28E2900100B04413 /* ImageRetriever.swift in Sources */,
+				29BCFC8128D80E0C000F4B62 /* SearchBarView.swift in Sources */,
 				29BCFC7B28D80DEC000F4B62 /* SavedView.swift in Sources */,
 				29BCFC7928D80D7E000F4B62 /* SettingsView.swift in Sources */,
 				29BCFC7D28D80DF4000F4B62 /* ProfileView.swift in Sources */,
 				29BCFC8328D80E13000F4B62 /* FilterView.swift in Sources */,
 				29BCFC4828D7FF34000F4B62 /* ContentView.swift in Sources */,
+				291A966228E2997D00B04413 /* CachedImage.swift in Sources */,
+				291A966028E298BC00B04413 /* CachedImageManager.swift in Sources */,
 				29BCFC7F28D80DFC000F4B62 /* SearchView.swift in Sources */,
+				29239CC228DB986A0055D244 /* DataLoader.swift in Sources */,
+				29F6B9B428DAA5B600472FC1 /* SearchViewModel.swift in Sources */,
 				29F6B9B128DA94B700472FC1 /* Player.swift in Sources */,
+				2918E35628DD761E00E6615D /* URL-Endpoints.swift in Sources */,
+				291A965E28E2943600B04413 /* ImageCache.swift in Sources */,
 				29BCFC4628D7FF34000F4B62 /* DotaKeeperApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

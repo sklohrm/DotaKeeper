@@ -9,40 +9,49 @@ import SwiftUI
 
 struct SearchView: View {
 
+    @State private var text: String = ""
+    @State private var pickerState = SearchPickerState.heroes
+    @State private var isPresented: Bool = false
+    @StateObject private var viewModel = ViewModel()
+
     var body: some View {
-        Content()
-    }
-}
-
-// MARK: - Content
-extension SearchView {
-    struct Content: View {
-        @State private var searchText: String = ""
-        @State private var pickerState = SearchPickerState.heroes
-        @State private var isPresented: Bool = false
-
-        var body: some View {
-            VStack {
-                TopBarView(pickerState: $pickerState)
-                ScrollView {
-                    ForEach(1...100, id: \.self) { index in
-                        Text("\(pickerState.rawValue) \(index)")
-                            .padding()
-                            .frame(maxWidth: .infinity)
+        VStack {
+            // SearchBarView(pickerState: $pickerState)
+            TextField("Search", text: $text)
+                .onSubmit {
+                    Task {
+                        await viewModel.searchPlayersAsync(withName: text)
                     }
-                    .onTapGesture {
-                        isPresented.toggle()
+                }
+            ZStack {
+                if viewModel.isRefreshing {
+                    VStack {
+                        Spacer()
+                        ProgressView()
+                        Spacer()
                     }
-                    .fullScreenCover(isPresented: $isPresented) {
-                        DetailView()
+                } else {
+                    List {
+                        ForEach(viewModel.players) { player in
+                            PlayerView(player: player)
+                                .listRowSeparator(.hidden)
+                        }
+                        .onTapGesture {
+                            isPresented.toggle()
+                        }
+                        .fullScreenCover(isPresented: $isPresented) {
+                            DetailView()
+                        }
                     }
+                    .listStyle(.plain)
                 }
             }
         }
     }
 }
 
-// Placeholder
+// MARK: - Placeholder Views
+
 struct DetailView: View {
     @Environment(\.dismiss) var dismiss
     var body: some View {
@@ -62,6 +71,48 @@ struct DetailView: View {
                         .padding()
                 }
             }
+        }
+    }
+}
+
+struct PlayerView: View {
+    let player: Player
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            CachedImage(url: player.avatarFull) { phase in
+                switch phase {
+                case .empty:
+                    ProgressView()
+                case .success(let image):
+                    VStack {
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 100, height: 100)
+//                            .padding()
+//                            .background(.blue, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                    }
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                case .failure(error: _):
+                    VStack {
+                        Image(systemName: "xmark")
+                            .symbolVariant(.circle.fill)
+                            .foregroundStyle(.white)
+                            .frame(width: 100, height: 100)
+                            .background(.blue, in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                    }
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                @unknown default:
+                    EmptyView()
+                }
+            }
+            Text("Account ID: \(player.accountID)")
+            Text("Persona Name: \(player.personaName)")
+            Text("Avatar Full: \(player.avatarFull)")
+            Text("Last Match Time: \(player.playerLastMatch)")
+            Text("Similarity: \(player.similarity)")
+
         }
     }
 }

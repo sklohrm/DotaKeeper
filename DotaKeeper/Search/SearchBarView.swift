@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TopBarView<E: PickerEnum>: View where E.RawValue == String {
+struct SearchBarView<E: PickerEnum>: View where E.RawValue == String {
 
     @Binding var pickerState: E
     @State private var searchText: String = ""
@@ -61,6 +61,9 @@ struct SearchBar: View {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.gray)
                 TextField("Search", text: $text)
+                    .onSubmit {
+                        // Search for players with name
+                    }
                     .onTapGesture {
                         self.isEditing = true
                     }
@@ -100,7 +103,7 @@ struct TopBar_Previews: PreviewProvider {
 
     static var previews: some View {
         VStack {
-            TopBarView<GlossaryPickerState>(pickerState: $pickerState)
+            SearchBarView<GlossaryPickerState>(pickerState: $pickerState)
             Spacer()
         }
     }

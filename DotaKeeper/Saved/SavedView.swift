@@ -15,7 +15,7 @@ struct SavedView: View {
         NavigationStack {
             ScrollView {
                 VStack {
-                    TopBarView(pickerState: $pickerState)
+                    SearchBarView(pickerState: $pickerState)
 
     //                ScrollView {
                         ForEach(1...100, id: \.self) { index in
